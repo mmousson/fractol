@@ -6,13 +6,13 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 01:51:23 by mmousson          #+#    #+#             */
-/*   Updated: 2019/02/28 01:51:48 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/02/28 05:08:53 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_julia(void)
+void	ft_julia(t_fractol *inf)
 {
-
+	(void)inf;
 }

@@ -21,6 +21,8 @@ LIBMLX = /usr/local/lib/libmlx.a
 
 SRCS =	./src/core/main.c						\
 		./src/core/select_set_function.c		\
+		./src/core/put_pixel_to_image.c			\
+		./src/core/initiate_image.c				\
 		./src/burningship/burningship_main.c	\
 		./src/julia/julia_main.c				\
 		./src/mandelbrot/mandelbrot_main.c		\

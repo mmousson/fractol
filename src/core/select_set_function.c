@@ -6,7 +6,7 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 01:52:49 by mmousson          #+#    #+#             */
-/*   Updated: 2019/02/28 02:03:26 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/02/28 02:12:37 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	select_set_function(char *set_name, t_fractol *inf)
 			inf->set_function = ptr->handler;
 			return (1);
 		}
+		ptr++;
 	}
 	return (0);
 }
