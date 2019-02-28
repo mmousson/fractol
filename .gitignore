@@ -1,0 +1,6 @@
+fractol
+_OBJ
+**/**.o
+_OBJ/**/*.o
+libft/*.o
+libft/libft.a
