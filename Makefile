@@ -12,12 +12,12 @@
 
 NAME = fractol
 
-CC = clang
+CC = gcc
 LOGFOLDER = ~/fractol_logfolder
 CFLAGS = -Wall -Wextra -Werror -I./includes -I./libft/includes -I/usr/local/include
 
-LIBFT = ./libft/libft.a
-LIBMLX = /usr/local/lib/libmlx.a
+LIBS_LOCATION = -L./libft -L./minilibx -L/usr/X11/lib
+LIBS = -lft -lmlx -lX11 -lXext
 
 SRCS =	./src/core/main.c						\
 		./src/core/select_set_function.c		\
@@ -68,7 +68,7 @@ $(NAME): $(MOVED_OBJ) $(HEADERS)
 	@/bin/rm -rf ~/$(NAME)_logs
 	@/bin/mkdir ~/$(NAME)_logs
 	@if [ ! -e files_missing ] && [ -e $(LOGFOLDER)/relink ]; then \
-		$(CC) $(MOVED_OBJ) -o $(NAME) $(LIBFT) $(LIBMLX) -framework OpenGL -framework AppKit; \
+		$(CC) $(MOVED_OBJ) -o $(NAME) $(LIBS_LOCATION) $(LIBS); \
 		echo "\x1b[1;34m[FRACTOL COMPILATION SUCCESSFUL]\x1b[0m"; \
 	elif [ -e files_missing ]; then \
 		echo "\x1b[1;31m[FRACTOL COMPILATION FAILED]\x1b[0m"; \
