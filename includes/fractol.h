@@ -6,15 +6,15 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:53:30 by mmousson          #+#    #+#             */
-/*   Updated: 2019/02/28 06:16:22 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/02/28 06:28:04 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define HEIGHT 720
-# define WIDTH 1080
+# define HEIGHT 1080
+# define WIDTH 1920
 
 # define BURNINGSHIP "burningship"
 # define JULIA "julia"
@@ -43,6 +43,7 @@ void			ft_mandelbrot(t_fractol *inf);
 
 int				initiate_image(t_fractol *inf);
 void			ft_put_pixel(int *image, int x, int y, int color);
+int				ft_clerp(int color_a, int color_b, double t);
 int				select_set_function(char *set_name, t_fractol *inf);
 int				key_manager(int keycode, void *params);
 
