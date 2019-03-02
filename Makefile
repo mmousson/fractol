@@ -16,18 +16,20 @@ CC = gcc
 LOGFOLDER = ~/fractol_logfolder
 CFLAGS = -Wall -Wextra -Werror -I./includes -I./libft/includes -I/usr/local/include
 
-LIBS_LOCATION = -L./libft -L./minilibx -L/usr/X11/lib
-LIBS = -lft -lmlx -lX11 -lXext
+LIBS_LOCATION_MAC = -L./libft  -L/usr/local/lib
+LIBS_MAC = -lft -lmlx -framework OpenGL -framework AppKit
 
-SRCS =	./src/core/main.c						\
-		./src/core/select_set_function.c		\
-		./src/core/initiate_image.c				\
-		./src/pixels/put_pixel_to_image.c		\
-		./src/pixels/clerp.c					\
-		./src/burningship/burningship_main.c	\
-		./src/julia/julia_main.c				\
-		./src/mandelbrot/mandelbrot_main.c		\
-		./src/key_handler/key_manager.c			\
+SRCS =	./src/core/main.c							\
+		./src/core/select_set_function.c			\
+		./src/core/initiate_image.c					\
+		./src/pixels/put_pixel_to_image.c			\
+		./src/pixels/clerp.c						\
+		./src/burningship/burningship_main.c		\
+		./src/julia/julia_main.c					\
+		./src/mandelbrot/mandelbrot_main.c			\
+		./src/mandelbrot/mandelbrot_hook.c			\
+		./src/mandelbrot/mandelbrot_mouse.c			\
+		./src/key_handler/key_manager.c				\
 		./src/key_handler/escape_handler.c
 
 OBJS = $(SRCS:.c=.o)
@@ -68,7 +70,7 @@ $(NAME): $(MOVED_OBJ) $(HEADERS)
 	@/bin/rm -rf ~/$(NAME)_logs
 	@/bin/mkdir ~/$(NAME)_logs
 	@if [ ! -e files_missing ] && [ -e $(LOGFOLDER)/relink ]; then \
-		$(CC) $(MOVED_OBJ) -o $(NAME) $(LIBS_LOCATION) $(LIBS); \
+		$(CC) $(MOVED_OBJ) -o $(NAME) $(LIBS_LOCATION_MAC) $(LIBS_MAC); \
 		echo "\x1b[1;34m[FRACTOL COMPILATION SUCCESSFUL]\x1b[0m"; \
 	elif [ -e files_missing ]; then \
 		echo "\x1b[1;31m[FRACTOL COMPILATION FAILED]\x1b[0m"; \

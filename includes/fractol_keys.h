@@ -6,7 +6,7 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 01:14:37 by mmousson          #+#    #+#             */
-/*   Updated: 2019/02/28 01:20:52 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/02 11:18:17 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@
 typedef struct	s_key_matcher
 {
 	int			keycode;
-	void		(*handler) (void *params);
+	void		(*handler) (void *params, int keycode);
 }				t_key_matcher;
 
-void			ft_escape_handler(void *params);
+void			ft_escape_handler(void *params, int keycode);
 
 #endif
