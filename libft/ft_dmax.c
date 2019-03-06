@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_manager.c                                      :+:      :+:    :+:   */
+/*   ft_dmax.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/28 01:09:40 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/02 11:36:46 by mmousson         ###   ########.fr       */
+/*   Created: 2019/03/05 21:37:02 by mmousson          #+#    #+#             */
+/*   Updated: 2019/03/05 21:42:52 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "fractol_keys.h"
-#include <stdlib.h>
+#include <stdarg.h>
+#include <limits.h>
 
-int	key_manager(int keycode, void *params)
+double	ft_dmax(int count, ...)
 {
-	const t_key_matcher			*ptr;
-	static const t_key_matcher	dispatcher[2] = {
-		{ESCAPE, &ft_escape_handler},
-		{-1, NULL}
-	};
+	va_list	ap;
+	double	tmp;
+	double	max;
 
-	ptr = dispatcher;
-	while (ptr->handler != NULL)
+	va_start(ap, count);
+	max = __DBL_MIN__;
+	while (count-- > 0)
 	{
-		if (keycode == ptr->keycode)
-		{
-			ptr->handler(params, keycode);
-			return (1);
-		}
-		ptr++;
+		tmp = va_arg(ap, double);
+		if (tmp > max)
+			max = tmp;
 	}
-	return (0);
+	va_end(ap);
+	return (max);
 }

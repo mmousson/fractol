@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 02:11:28 by mmousson          #+#    #+#             */
-/*   Updated: 2019/02/26 16:49:30 by marvin           ###   ########.fr       */
+/*   Updated: 2019/03/05 21:43:21 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,10 @@ void				ft_lstpush(t_list **alst, t_list *new);
 
 int					ft_abs(int x);
 int					ft_min(int x, int y);
+double				ft_dmin(int count, ...);
 int					ft_max(int x, int y);
+double				ft_dmax(int count, ...);
 int					ft_clamp(int x, int low, int high);
+double				ft_fabs(double x);
 
 #endif

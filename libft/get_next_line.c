@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 17:01:42 by marvin            #+#    #+#             */
-/*   Updated: 2019/02/27 19:50:14 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/02/26 16:50:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
 static int	free_all(char *line)
@@ -70,7 +72,7 @@ static int	ft_splitfun(char **line, char **buf)
 	char		*tmp;
 
 	free(*line);
-	if (!(*line = ft_strsub(*buf, 0, ft_strchr(*buf, '\n')
+	if (!(*line = ft_strsub(*buf, 0, ft_strchr(*buf, '\n') \
 					- *buf)))
 		return (free_all(*line));
 	if (!(tmp = ft_strdup(ft_strchr(*buf, '\n') + 1)))

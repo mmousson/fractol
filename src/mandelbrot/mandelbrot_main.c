@@ -6,37 +6,48 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 01:55:21 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/02 11:44:54 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 00:56:57 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <math.h>
 #include "mlx.h"
 #include "fractol.h"
 #include "libft.h"
-#include <stdio.h>
 
-static void	render(float c_r, float c_i, int itermax, t_fractol *inf)
+static int	loop(double *z_r, double *z_i, double *c_r, double *c_i)
+{
+	double	tmp;
+
+	tmp = *z_r;
+	*z_r = (*z_r * *z_r) - (*z_i * *z_i) + *c_r;
+	*z_i = (2.0 * *z_i * tmp) + *c_i;
+	return (1);
+}
+
+static void	render(double c_r, double c_i, int itermax, t_fractol *inf)
 {
 	int		i;
-	float	z_r;
-	float	z_i;
-	float	tmp;
+	double	z_r;
+	double	z_i;
+	double	mu;
 
 	i = 0;
 	z_r = 0.0f;
 	z_i = 0.0f;
-	while ((z_r * z_r) + (z_i * z_i) < 4.0f && i < itermax)
-	{
-		tmp = z_r;
-		z_r = (z_r * z_r) - (z_i * z_i) + c_r;
-		z_i = (2 * z_i * tmp) + c_i;
-		i++;
-	}
+	while ((z_r * z_r) + (z_i * z_i) < 4.0 && i < itermax)
+		i += loop(&z_r, &z_i, &c_r, &c_i);
 	if (i == itermax)
 		ft_put_pixel(inf->image, inf->x, inf->y, 0x000000);
 	else
+	{
+		i += loop(&z_r, &z_i, &c_r, &c_i);
+		i += loop(&z_r, &z_i, &c_r, &c_i);
+		mu = (double)i + 1.0 - (log2(log2(z_r * z_r + z_i * z_i))) + 4.0;
 		ft_put_pixel(inf->image, inf->x, inf->y,
-			ft_clerp(0x000000, 0xFF0000, (double)i / (double)itermax));
+			ft_clerp(0xFF0000, 0xFF00FF, inf->iterations_max / mu));
+	}
 }
 
 void		mandelbrot_generate(void *params)
@@ -66,13 +77,14 @@ void		mandelbrot_generate(void *params)
 
 void		ft_mandelbrot(t_fractol *inf)
 {
-	inf->limits.up = 1.2f;
-	inf->limits.down = -1.2f;
-	inf->limits.left = 0.6f;
-	inf->limits.right = -2.1f;
+	inf->update = mandelbrot_generate;
+	inf->limits.up = 1.2;
+	inf->limits.down = -1.2;
+	inf->limits.left = 0.6;
+	inf->limits.right = -2.1;
 	inf->iterations_max = 25;
 	mandelbrot_generate((void *)inf);
-	mlx_hook(inf->win, 4, 0, &mandelbrot_mouse_press, (void *)inf);
-	mlx_key_hook(inf->win, &mandelbrot_key_manager, (void *)inf);
+	mlx_hook(inf->win, 4, 0, &mouse_press, (void *)inf);
+	mlx_key_hook(inf->win, &key_manager, (void *)inf);
 	mlx_loop(inf->mlx);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot_hook.c                                  :+:      :+:    :+:   */
+/*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 06:18:15 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/02 12:00:25 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/05 21:01:33 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ static void	zoom_in(void *params, int keycode)
 {
 	(void)keycode;
 	((t_fractol *)params)->iterations_max++;
-	mandelbrot_generate(params);
+	((t_fractol *)params)->update(params);
 }
 
 static void	zoom_out(void *params, int keycode)
 {
 	(void)keycode;
 	((t_fractol *)params)->iterations_max--;
-	mandelbrot_generate(params);
+	((t_fractol *)params)->update(params);
 }
 
 static void	move(void *params, int keycode)
@@ -62,10 +62,10 @@ static void	move(void *params, int keycode)
 		inf->limits.left += (0.1f) * (dist(inf, 0) / (0.6f - -2.1f));
 		inf->limits.right += (0.1f) * (dist(inf, 0) / (0.6f - -2.1f));
 	}
-	mandelbrot_generate(params);
+	((t_fractol *)params)->update(params);
 }
 
-int			mandelbrot_key_manager(int keycode, void *params)
+int			key_manager(int keycode, void *params)
 {
 	const t_key_matcher			*ptr;
 	static const t_key_matcher	dispatcher[8] = {

@@ -22,14 +22,15 @@ LIBS_MAC = -lft -lmlx -framework OpenGL -framework AppKit
 SRCS =	./src/core/main.c							\
 		./src/core/select_set_function.c			\
 		./src/core/initiate_image.c					\
+		./src/core/hook.c							\
+		./src/core/mouse.c							\
 		./src/pixels/put_pixel_to_image.c			\
 		./src/pixels/clerp.c						\
+		./src/pixels/rgb_to_hsl.c					\
+		./src/pixels/hsl_to_rgb.c					\
 		./src/burningship/burningship_main.c		\
 		./src/julia/julia_main.c					\
 		./src/mandelbrot/mandelbrot_main.c			\
-		./src/mandelbrot/mandelbrot_hook.c			\
-		./src/mandelbrot/mandelbrot_mouse.c			\
-		./src/key_handler/key_manager.c				\
 		./src/key_handler/escape_handler.c
 
 OBJS = $(SRCS:.c=.o)
