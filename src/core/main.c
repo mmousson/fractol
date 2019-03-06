@@ -6,7 +6,7 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 00:23:34 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/02 06:15:07 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 02:44:15 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	ft_bootup(char *set)
 	}
 	mlx_clear_window(inf->mlx, inf->win);
 	ft_bzero(inf->image, WIDTH * HEIGHT * 4);
+	mlx_hook(inf->win, CLOSE, 0, &close_fractol, (void *)inf);
 	inf->set_function(inf);
 	return (1);
 }
@@ -59,4 +60,3 @@ int			main(int argc, char **argv)
 		return (ft_usage());
 	return (0);
 }
-

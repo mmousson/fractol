@@ -67,7 +67,7 @@ $(OBJ_ROOT)/%.o: src/%.c | log_check
 	@/bin/rm -f $(LOGFOLDER)/tmp.log && rm -f $(LOGFOLDER)/tmp.errors
 
 
-$(NAME): $(MOVED_OBJ) $(HEADERS)
+$(NAME): $(MOVED_OBJ)
 	@/bin/rm -rf ~/$(NAME)_logs
 	@/bin/mkdir ~/$(NAME)_logs
 	@if [ ! -e files_missing ] && [ -e $(LOGFOLDER)/relink ]; then \

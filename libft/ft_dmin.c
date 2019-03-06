@@ -6,12 +6,11 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 21:42:36 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/05 21:43:11 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 03:05:48 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <limits.h>
 
 double	ft_dmin(int count, ...)
 {

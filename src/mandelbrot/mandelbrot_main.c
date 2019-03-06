@@ -6,15 +6,13 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 01:55:21 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/06 00:56:57 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 03:02:03 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <math.h>
 #include "mlx.h"
 #include "fractol.h"
-#include "libft.h"
 
 static int	loop(double *z_r, double *z_i, double *c_r, double *c_i)
 {
@@ -34,8 +32,8 @@ static void	render(double c_r, double c_i, int itermax, t_fractol *inf)
 	double	mu;
 
 	i = 0;
-	z_r = 0.0f;
-	z_i = 0.0f;
+	z_r = 0.0;
+	z_i = 0.0;
 	while ((z_r * z_r) + (z_i * z_i) < 4.0 && i < itermax)
 		i += loop(&z_r, &z_i, &c_r, &c_i);
 	if (i == itermax)

@@ -6,7 +6,7 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 02:11:28 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/05 21:43:21 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 02:23:33 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,12 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+union				u_fabs_matcher
+{
+	double			double_corres;
+	unsigned long	int_corres;
+};
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

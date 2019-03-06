@@ -6,12 +6,11 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 21:37:02 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/05 21:42:52 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 03:05:52 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <limits.h>
 
 double	ft_dmax(int count, ...)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot_mouse.c                                 :+:      :+:    :+:   */
+/*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 11:14:54 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/05 20:58:14 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 01:37:24 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,21 @@ int			mouse_press(int button, int x, int y, void *params)
 		((t_fractol *)params)->limits.left *= 1.1f;
 		((t_fractol *)params)->limits.right *= 1.1f;
 	}
+	((t_fractol *)params)->update(params);
+	return (1);
+}
+
+int			mouse_move(int x, int y, void *params)
+{
+	double		width;
+	double		height;
+	t_fractol	*inf;
+
+	width = (double)x;
+	height = (double)y;
+	inf = (t_fractol *)params;
+	inf->params.c_r = width / WIDTH;
+	inf->params.c_i = height / HEIGHT;
 	((t_fractol *)params)->update(params);
 	return (1);
 }

@@ -6,11 +6,10 @@
 /*   By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 23:52:05 by mmousson          #+#    #+#             */
-/*   Updated: 2019/03/06 00:27:30 by mmousson         ###   ########.fr       */
+/*   Updated: 2019/03/06 03:02:28 by mmousson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 #include "fractol.h"
 
