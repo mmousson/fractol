@@ -6,7 +6,7 @@
 #    By: mmousson <mmousson@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/07 00:53:31 by mmousson          #+#    #+#              #
-#    Updated: 2019/02/20 02:11:29 by mmousson         ###   ########.fr        #
+#    Updated: 2019/03/11 19:36:28 by mmousson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,11 +77,7 @@ SRC =	ft_memset.c				\
 		ft_lstiter.c			\
 		ft_lstmap.c				\
 		ft_lstpush.c			\
-		ft_rotate_left.c		\
-		ft_stradd.c				\
-		ft_strmultiply.c		\
 		ft_putllong.c			\
-		ft_putfloat.c			\
 		ft_min.c				\
 		ft_dmin.c				\
 		ft_max.c				\
@@ -94,6 +90,8 @@ SRC =	ft_memset.c				\
 		get_next_line.c
 
 OBJ = $(SRC:.c=.o)
+
+.NOTPARALLEL:
 
 all: $(NAME)
 

@@ -41,6 +41,8 @@ OBJ_DIRS = $(dir $(MOVED_OBJ))
 CHARACTERS := a b c d e f g h i j k l m n o p q r s t u v w x y z _
 strlen = $(strip $(eval __temp := $(subst $(sp),x,$1))$(foreach a,$(CHARACTERS),$(eval __temp := $$(subst $a,x,$(__temp))))$(eval __temp := $(subst x,x ,$(__temp)))$(words $(__temp)))
 
+.NOTPARALLEL:
+
 all: $(NAME)
 
 log_check:
